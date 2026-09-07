@@ -4,90 +4,80 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#14301f">
-<title>MIVA — Pokrom · Arrosage</title>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="MIVA">
+<meta name="mobile-web-app-capable" content="yes">
+<title>MIVA — Pokrom</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;800&display=swap" rel="stylesheet">
 <style>
-:root{
-  --ground:#f1f3ee; --panel:#fff; --ink:#14301f; --ink-soft:#5b6b60; --line:#d8ded6;
-  --green:#1e5b3c; --green-soft:#e6f0ea;
-  --water:#0e6ba8; --water-soft:#e4f0f8;
-  --alert:#a32b1c; --alert-soft:#fbeae7;
-  --ochre:#a06d12; --ochre-soft:#f7efdd;
-  --radius:14px; --tabh:66px; font-synthesis-weight:none;
-}
+:root{--ground:#f1f3ee;--panel:#fff;--ink:#14301f;--ink-soft:#5b6b60;--line:#d8ded6;
+ --green:#1e5b3c;--green-soft:#e6f0ea;--water:#0e6ba8;--water-soft:#e4f0f8;
+ --alert:#a32b1c;--alert-soft:#fbeae7;--ochre:#a06d12;--ochre-soft:#f7efdd;
+ --radius:14px;--tabh:66px;font-synthesis-weight:none}
 *{box-sizing:border-box;margin:0;padding:0}
 html{-webkit-text-size-adjust:100%}
-body{background:var(--ground);color:var(--ink);
-  font-family:'Archivo',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
-  font-size:16px;line-height:1.45;font-variant-numeric:tabular-nums;
-  padding-bottom:calc(var(--tabh) + env(safe-area-inset-bottom));-webkit-font-smoothing:antialiased}
+body{background:var(--ground);color:var(--ink);font-family:'Archivo',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+ font-size:16px;line-height:1.45;font-variant-numeric:tabular-nums;
+ padding-bottom:calc(var(--tabh) + env(safe-area-inset-bottom));-webkit-font-smoothing:antialiased}
 .wrap{max-width:640px;margin:0 auto;padding:20px 18px 34px}
 h1,h2,h3{font-weight:600;letter-spacing:-.015em;line-height:1.15}
 button{font-family:inherit;font-size:inherit;cursor:pointer;background:none;border:0;color:inherit}
 button:focus-visible,input:focus-visible{outline:2px solid var(--water);outline-offset:2px;border-radius:6px}
-
 .topline{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:22px}
 .hello{font-size:1.5rem;font-weight:800;letter-spacing:-.03em}
 .today-date{font-size:.84rem;color:var(--ink-soft);margin-top:2px}
 .lang{display:flex;border:1px solid var(--line);border-radius:9px;overflow:hidden;background:var(--panel);flex:none}
 .lang button{padding:5px 10px;font-size:.78rem;font-weight:600;color:var(--ink-soft)}
 .lang button.on{background:var(--green);color:#fff}
-
 .card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:16px;margin-bottom:12px}
 .eyebrow{font-size:.72rem;font-weight:600;letter-spacing:.08em;color:var(--ink-soft);margin-bottom:12px}
-
-/* weather */
 .daytabs{display:flex;gap:7px;overflow-x:auto;padding-bottom:9px;scrollbar-width:none}
 .daytabs::-webkit-scrollbar{display:none}
-.daytab{flex:1 0 auto;min-width:74px;text-align:center;padding:11px 8px;border:1px solid var(--line);
-  border-radius:10px;background:var(--panel);font-size:.85rem;color:var(--ink-soft)}
+.daytab{flex:1 0 auto;min-width:74px;text-align:center;padding:11px 8px;border:1px solid var(--line);border-radius:10px;background:var(--panel);font-size:.85rem;color:var(--ink-soft)}
 .daytab.on{background:var(--green-soft);border-color:var(--green);color:var(--green);font-weight:600}
 .daytab .dt{display:block;font-size:.7rem;opacity:.75;margin-top:2px;font-weight:400}
 .wnow{display:flex;align-items:center;justify-content:space-between;gap:14px;margin:16px 0 14px}
 .wday{font-size:1.08rem;font-weight:600;color:var(--green)}
-.wtemp{display:flex;align-items:center;gap:10px}
-.wtemp b{font-size:2.15rem;font-weight:400;letter-spacing:-.02em}
+.wtemp{display:flex;align-items:center;gap:10px}.wtemp b{font-size:2.15rem;font-weight:400;letter-spacing:-.02em}
 .wmetrics{display:grid;grid-template-columns:repeat(2,1fr);border:1px solid var(--line);border-radius:10px;overflow:hidden}
 .wmetrics div{padding:10px 12px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
-.wmetrics div:nth-child(2n){border-right:0}
-.wmetrics div:nth-child(n+3){border-bottom:0}
-.wmetrics span{display:block;font-size:.74rem;color:var(--ink-soft)}
-.wmetrics b{font-size:1rem;font-weight:600}
+.wmetrics div:nth-child(2n){border-right:0}.wmetrics div:nth-child(n+3){border-bottom:0}
+.wmetrics span{display:block;font-size:.74rem;color:var(--ink-soft)}.wmetrics b{font-size:1rem;font-weight:600}
 .whours{display:flex;gap:6px;overflow-x:auto;margin-top:10px;background:var(--green-soft);border-radius:10px;padding:7px;scrollbar-width:none}
 .whours::-webkit-scrollbar{display:none}
 .whr{flex:1 0 auto;min-width:62px;text-align:center;padding:6px 4px;border-radius:7px;font-size:.78rem;color:var(--ink-soft)}
 .whr b{display:block;font-weight:600;color:var(--ink);font-size:.85rem}
 .whr.now{background:var(--green);color:#fff}.whr.now b{color:#fff}
 .wnote{font-size:.8rem;color:var(--ink-soft);margin-top:10px}
-
-/* slots */
+.gauge{display:flex;gap:8px;align-items:center;margin-top:12px;padding-top:12px;border-top:1px solid var(--line)}
+.gauge label{font-size:.8rem;color:var(--ink-soft);flex:1}
+.gauge input{width:78px;padding:8px;border:1px solid var(--line);border-radius:9px;font-family:inherit;text-align:right;background:var(--panel);color:inherit}
+.gauge button{padding:9px 13px;border-radius:9px;background:var(--green);color:#fff;font-weight:600;font-size:.82rem}
+.restday h2{font-size:1.2rem}.restday p{color:var(--ink-soft);font-size:.9rem;margin-top:4px}
+.pill.meas{background:var(--water-soft);color:var(--water)}
+.lossrow{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:11px 0;border-bottom:1px solid var(--line)}
+.lossrow:last-child{border-bottom:0}
+.lossrow .sv{font-weight:600}.lossrow .sv.bad{color:var(--alert)}
+.lossrow .lm{font-size:.78rem;color:var(--ink-soft);margin-top:1px}
+.lossrow button{padding:7px 12px;border:1px solid var(--line);border-radius:9px;font-size:.82rem;flex:none}
 .slot{border-left:5px solid var(--water);padding-left:13px;margin-bottom:16px}
-.slot:last-child{margin-bottom:0}
-.slot.pm{border-left-color:var(--green)}
-.slot.off{border-left-color:var(--line)}
+.slot:last-child{margin-bottom:0}.slot.pm{border-left-color:var(--green)}.slot.off{border-left-color:var(--line)}
 .slot .when{font-size:.75rem;font-weight:600;letter-spacing:.05em;color:var(--ink-soft);margin-bottom:3px}
-.slot h2{font-size:1.2rem}
-.slot .sub{color:var(--ink-soft);font-size:.9rem;margin-top:4px}
-.slot .sub b{color:var(--ink)}
+.slot h2{font-size:1.2rem}.slot .sub{color:var(--ink-soft);font-size:.9rem;margin-top:4px}.slot .sub b{color:var(--ink)}
 .pill{display:inline-block;padding:3px 9px;border-radius:99px;font-size:.72rem;font-weight:600;margin-bottom:8px}
 .pill.skip{background:var(--green-soft);color:var(--green)}
 .pill.prov{background:var(--ochre-soft);color:var(--ochre)}
 .pill.unset{background:var(--alert-soft);color:var(--alert)}
-
 .blk{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;padding:12px 0;border-bottom:1px solid var(--line)}
 .blk:last-child{border-bottom:0;padding-bottom:0}.blk:first-child{padding-top:0}
-.blk .nm{font-weight:600}
-.blk .mt{font-size:.8rem;color:var(--ink-soft);margin-top:2px}
-.blk .rt{text-align:right;flex:none}
-.blk .lt{font-weight:600;color:var(--water)}
-.blk .hr{font-size:.78rem;color:var(--ink-soft)}
+.blk .nm{font-weight:600}.blk .mt{font-size:.8rem;color:var(--ink-soft);margin-top:2px}
+.blk .rt{text-align:right;flex:none}.blk .lt{font-weight:600;color:var(--water)}.blk .hr{font-size:.78rem;color:var(--ink-soft)}
 .tickbtn{width:26px;height:26px;border:2px solid var(--water);border-radius:7px;background:#fff;position:relative;flex:none;margin-left:4px}
 .tickbtn.done{background:var(--water)}
 .tickbtn.done::after{content:"";position:absolute;left:8px;top:3px;width:6px;height:12px;border:solid #fff;border-width:0 2.5px 2.5px 0;transform:rotate(42deg)}
-
-/* calendar */
 .calnav{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
 .calnav .mlabel{font-weight:600;font-size:1.05rem}
 .calnav button{padding:6px 12px;border:1px solid var(--line);border-radius:9px;background:var(--panel)}
@@ -95,8 +85,7 @@ button:focus-visible,input:focus-visible{outline:2px solid var(--water);outline-
 .calhead,.calgrid{display:grid;grid-template-columns:repeat(7,1fr)}
 .calhead div{padding:8px 4px;font-size:.66rem;font-weight:600;color:var(--ink-soft);border-bottom:1px solid var(--line);text-align:center}
 .cell{border-right:1px solid var(--line);border-bottom:1px solid var(--line);min-height:82px;padding:5px 4px;position:relative;font-size:.66rem}
-.cell:nth-child(7n){border-right:0}
-.cell.blank{background:#f7f8f5}
+.cell:nth-child(7n){border-right:0}.cell.blank{background:#f7f8f5}
 .cell .dn{font-weight:600;color:var(--ink-soft);font-size:.76rem}
 .cell.now{box-shadow:inset 0 0 0 2.5px var(--ink)}
 .chip{display:block;margin-top:3px;line-height:1.25;font-weight:600;border-radius:4px;padding:2px 3px}
@@ -107,25 +96,18 @@ button:focus-visible,input:focus-visible{outline:2px solid var(--water);outline-
 .legend{display:flex;flex-wrap:wrap;gap:14px;margin-top:12px;font-size:.78rem;color:var(--ink-soft)}
 .legend i{width:13px;height:13px;border-radius:3px;display:inline-block;vertical-align:-2px;margin-right:5px}
 .i-c{background:var(--ochre-soft)}.i-p{background:var(--water-soft)}.i-k{background:var(--green-soft)}
-
 table{width:100%;border-collapse:collapse;font-size:.86rem}
 th,td{text-align:left;padding:8px 6px;border-bottom:1px solid var(--line)}
 th{font-size:.72rem;color:var(--ink-soft);font-weight:600}
-td.n,th.n{text-align:right}
-tr:last-child td{border-bottom:0}
-tr.unset td{color:var(--alert)}
+td.n,th.n{text-align:right}tr:last-child td{border-bottom:0}tr.unset td{color:var(--alert)}
 .warn{background:var(--alert-soft);border-left:5px solid var(--alert);border-radius:var(--radius);padding:14px 16px;margin-bottom:12px;font-size:.9rem}
 .warn b{display:block;margin-bottom:4px}
 .note{font-size:.82rem;color:var(--ink-soft);margin-top:10px}
 .printbtn{width:100%;padding:13px;border-radius:11px;background:var(--green);color:#fff;font-weight:600;margin-top:12px}
-
-/* settings */
 .set{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:11px 0;border-bottom:1px solid var(--line)}
-.set:last-child{border-bottom:0}
-.set label{font-size:.9rem}
+.set:last-child{border-bottom:0}.set label{font-size:.9rem}
 .set .hint{display:block;font-size:.75rem;color:var(--ink-soft);margin-top:2px}
-.set input{width:96px;padding:8px 10px;border:1px solid var(--line);border-radius:9px;font-family:inherit;
-  font-size:.92rem;text-align:right;font-variant-numeric:tabular-nums;background:var(--panel);color:inherit;flex:none}
+.set input{width:96px;padding:8px 10px;border:1px solid var(--line);border-radius:9px;font-family:inherit;font-size:.92rem;text-align:right;background:var(--panel);color:inherit;flex:none}
 .hoses{display:flex;gap:7px}
 .hoses button{flex:1;padding:12px;border:1px solid var(--line);border-radius:10px;background:var(--panel);font-weight:600;color:var(--ink-soft)}
 .hoses button.on{background:var(--water);border-color:var(--water);color:#fff}
@@ -134,454 +116,664 @@ tr.unset td{color:var(--alert)}
 .switch::after{content:"";position:absolute;top:3px;left:3px;width:24px;height:24px;border-radius:99px;background:#fff;transition:left .15s}
 .switch.on::after{left:25px}
 
+/* photos */
+.shoot{display:flex;gap:9px;margin-bottom:12px}
+.shoot label{flex:1;padding:14px;border-radius:11px;background:var(--green);color:#fff;font-weight:600;text-align:center;cursor:pointer}
+.shoot input{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none}
+.picker{display:flex;gap:7px;overflow-x:auto;padding-bottom:9px;margin-bottom:12px;scrollbar-width:none}
+.picker::-webkit-scrollbar{display:none}
+.picker button{flex:0 0 auto;padding:9px 13px;border:1px solid var(--line);border-radius:99px;background:var(--panel);font-size:.82rem;color:var(--ink-soft)}
+.picker button.on{background:var(--ink);border-color:var(--ink);color:#fff;font-weight:600}
+.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}
+.shot{position:relative;aspect-ratio:1;border-radius:10px;overflow:hidden;border:1px solid var(--line);background:var(--ground)}
+.shot img{width:100%;height:100%;object-fit:cover;display:block}
+.shot .dt{position:absolute;left:0;right:0;bottom:0;background:rgba(20,48,31,.78);color:#fff;font-size:.62rem;padding:3px 4px;text-align:center}
+.shot .del{position:absolute;top:4px;right:4px;width:22px;height:22px;border-radius:99px;background:rgba(163,43,28,.9);color:#fff;font-size:.8rem;line-height:22px;text-align:center}
+.meter{height:7px;border-radius:99px;background:var(--line);overflow:hidden;margin:10px 0 6px}
+.meter i{display:block;height:100%;background:var(--green)}
+.meter i.hot{background:var(--alert)}
+.empty{text-align:center;padding:26px 14px;color:var(--ink-soft);font-size:.88rem}
+.lightbox{position:fixed;inset:0;background:rgba(20,48,31,.94);z-index:60;display:flex;align-items:center;justify-content:center;padding:18px}
+.lightbox img{max-width:100%;max-height:82vh;border-radius:12px}
+.lightbox .cap{position:absolute;bottom:26px;left:0;right:0;text-align:center;color:#fff;font-size:.85rem}
+
+/* species */
+.sp{border-bottom:1px solid var(--line);padding:13px 0}
+.sp:last-child{border-bottom:0;padding-bottom:0}
+.sp>button{width:100%;display:flex;justify-content:space-between;align-items:center;gap:10px;text-align:left}
+.sp .spn{font-weight:600}
+.sp .spc{font-size:.76rem;color:var(--ink-soft);margin-top:1px}
+.sp .arw{color:var(--ink-soft);flex:none}
+.spbody{display:none;padding-top:11px}
+.sp.open .spbody{display:block}
+.spr{margin-bottom:10px}.spr:last-child{margin-bottom:0}
+.spr b{display:block;font-size:.72rem;letter-spacing:.05em;color:var(--ink-soft);margin-bottom:2px}
+.spr p{font-size:.88rem}
+.spr.risk b{color:var(--alert)}
+.flag{background:var(--ochre-soft);color:var(--ochre);font-size:.8rem;padding:9px 11px;border-radius:9px;margin-bottom:10px}
+
 .view{display:none}.view.on{display:block}
 nav{position:fixed;left:0;right:0;bottom:0;height:calc(var(--tabh) + env(safe-area-inset-bottom));
-  padding-bottom:env(safe-area-inset-bottom);background:var(--panel);border-top:1px solid var(--line);display:flex;z-index:20}
-nav button{flex:1;font-size:.71rem;font-weight:600;color:var(--ink-soft);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px}
+ padding-bottom:env(safe-area-inset-bottom);background:var(--panel);border-top:1px solid var(--line);display:flex;z-index:20}
+nav button{flex:1;font-size:.66rem;font-weight:600;color:var(--ink-soft);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px}
 nav button.on{color:var(--green)}
 nav button i{font-style:normal;font-size:1.05rem;line-height:1}
-
 @media print{
   @page{size:A4 landscape;margin:10mm}
   body{background:#fff;padding:0}
-  nav,.lang,.printbtn,.calnav button,.tickbtn,#v-today,#v-guide,#v-set{display:none !important}
-  .view{display:block !important}
+  nav,.lang,.printbtn,.calnav button,.tickbtn,#v-today,#v-sp,#v-set,#v-track{display:none !important}
+  #v-cal{display:block !important}
   .wrap{max-width:none;padding:0}
   .card{border-color:#000;border-radius:0;page-break-inside:avoid}
   .cell{min-height:88px;-webkit-print-color-adjust:exact;print-color-adjust:exact}
   .chip.c{background:#f7efdd !important}.chip.p{background:#e4f0f8 !important}.chip.k{background:#e6f0ea !important}
   .cell.now{box-shadow:none}
   .pbox{display:block;position:absolute;right:4px;bottom:4px;width:13px;height:13px;border:1px solid #444}
-  .printonly{display:block !important}
 }
-.printonly{display:none}
 </style>
 </head>
 <body>
 <div class="wrap">
-
   <div class="topline">
-    <div>
-      <div class="hello" id="hello">Bonjour, Alicia</div>
-      <div class="today-date" id="topdate"></div>
-    </div>
-    <div class="lang">
-      <button data-lang="fr" class="on">FR</button>
-      <button data-lang="en">EN</button>
-    </div>
+    <div><div class="hello" id="hello">Bonjour, Alicia</div><div class="today-date" id="topdate"></div></div>
+    <div class="lang"><button data-lang="fr" class="on">FR</button><button data-lang="en">EN</button></div>
   </div>
 
   <section class="view on" id="v-today">
-    <div class="card">
-      <div class="eyebrow" id="lblWeather">MÉTÉO &amp; CONDITIONS</div>
-      <div class="daytabs" id="daytabs"></div>
-      <div id="wbody"><p class="wnote">…</p></div>
-    </div>
+    <div class="card"><div class="eyebrow" id="lblWeather"></div>
+      <div class="daytabs" id="daytabs"></div><div id="wbody"></div>
+      <div class="gauge"><label id="gaugeLbl"></label>
+        <input type="number" min="0" step="0.5" id="gaugeIn" placeholder="mm">
+        <button id="gaugeSave"></button></div></div>',
     <div class="card" id="slots"></div>
-    <div class="card">
-      <div class="eyebrow" id="lblBlocks">PARCELLES</div>
-      <div id="blocklist"></div>
-    </div>
+    <div class="card"><div class="eyebrow" id="lblBlocks"></div><div id="blocklist"></div></div>
   </section>
 
   <section class="view" id="v-cal">
-    <div class="calnav">
-      <button id="prev">‹</button><span class="mlabel" id="mlabel"></span><button id="next">›</button>
-    </div>
+    <div class="calnav"><button id="prev">‹</button><span class="mlabel" id="mlabel"></span><button id="next">›</button></div>
     <div class="cal"><div class="calhead" id="calhead"></div><div class="calgrid" id="grid"></div></div>
     <div class="legend" id="legend"></div>
-    <div class="card" style="margin-top:12px">
-      <div class="eyebrow" id="lblBudget">EAU DU MOIS</div>
-      <table><tbody id="budget"></tbody></table>
-      <p class="note" id="budgetnote"></p>
-    </div>
-    <button class="printbtn" id="printbtn">Imprimer ce mois</button>
+    <div class="card" style="margin-top:12px"><div class="eyebrow" id="lblBudget"></div>
+      <table><tbody id="budget"></tbody></table><p class="note" id="budgetnote"></p></div>
+    <button class="printbtn" id="printbtn"></button>
   </section>
 
-  <section class="view" id="v-guide">
+  <section class="view" id="v-track">
+    <div class="card"><div class="eyebrow" id="lblLoss"></div>
+      <div id="lossList"></div><p class="note" id="lossnote"></p></div>
+    <div class="card">
+      <div class="eyebrow" id="lblPhoto"></div>
+      <div class="picker" id="picker"></div>
+      <div class="shoot">
+        <label for="cam" id="camLabel"></label>
+        <input type="file" id="cam" accept="image/*" capture="environment">
+      </div>
+      <div class="gal" id="gal"></div>
+      <div class="empty" id="galEmpty" hidden></div>
+      <div class="meter"><i id="meterBar"></i></div>
+      <p class="note" id="meterNote"></p>
+      <button class="printbtn" id="exportBtn" style="background:var(--water)"></button>
+    </div>
+  </section>
+
+  <section class="view" id="v-sp">
     <div class="warn" id="rainrule"></div>
-    <div class="card">
-      <div class="eyebrow" id="lblDose">DOSE PAR ARBRE</div>
-      <table><tbody id="doses"></tbody></table>
-      <p class="note" id="dosenote"></p>
-    </div>
-    <div class="card">
-      <div class="eyebrow" id="lblRhythm">RYTHME</div>
-      <div id="rhythm"></div>
-    </div>
+    <div class="card"><div class="eyebrow" id="lblDose"></div><table><tbody id="doses"></tbody></table>
+      <p class="note" id="dosenote"></p></div>
+    <div class="card"><div class="eyebrow" id="lblSp"></div><div id="spList"></div></div>
   </section>
 
   <section class="view" id="v-set">
-    <div class="card">
-      <div class="eyebrow" id="lblHose">TUYAUX EN SERVICE</div>
-      <div class="hoses" id="hoses"></div>
-      <p class="note" id="hosenote"></p>
-    </div>
-    <div class="card">
-      <div class="eyebrow" id="lblAreas">SURFACES DES CULTURES (m²)</div>
-      <div id="areaFields"></div>
-      <p class="note" id="areanote"></p>
-    </div>
-    <div class="card">
-      <div class="eyebrow" id="lblOther">AUTRES RÉGLAGES</div>
-      <div id="otherFields"></div>
-    </div>
+    <div class="card"><div class="eyebrow" id="lblHose"></div><div class="hoses" id="hoses"></div>
+      <p class="note" id="hosenote"></p></div>
+    <div class="card"><div class="eyebrow" id="lblAreas"></div><div id="areaFields"></div>
+      <p class="note" id="areanote"></p></div>
+    <div class="card"><div class="eyebrow" id="lblOther"></div><div id="otherFields"></div></div>
   </section>
 </div>
 
 <nav>
-  <button data-tab="today" class="on"><i>◉</i><span id="navToday">Aujourd'hui</span></button>
-  <button data-tab="cal"><i>▦</i><span id="navCal">Calendrier</span></button>
-  <button data-tab="guide"><i>≡</i><span id="navGuide">Guide</span></button>
-  <button data-tab="set"><i>⚙</i><span id="navSet">Réglages</span></button>
+  <button data-tab="today" class="on"><i>◉</i><span id="navToday"></span></button>
+  <button data-tab="cal"><i>▦</i><span id="navCal"></span></button>
+  <button data-tab="track"><i>◎</i><span id="navTrack"></span></button>
+  <button data-tab="sp"><i>❧</i><span id="navSp"></span></button>
+  <button data-tab="set"><i>⚙</i><span id="navSet"></span></button>
 </nav>
 
 <script>
-/* ==========================================================
-   MIVA — Pokrom. 5.817 N, 0.317 W. Three workers, two tracks:
-   trees in the morning, crops in the late afternoon.
-   ========================================================== */
-var LAT=5.817, LON=-0.317, TZ="Africa/Accra";
-var COCONUT_PLANTED="2026-08-24", ESTABLISH_DAYS=90;
-var RAIN_SKIP_MM=15, CASSAVA_SKIP_MM=8;   // cassava rots if waterlogged >24h
-var FLOW=15;                              // litres per minute, per hose
-var LOSS=1.2;
+var LAT=5.817,LON=-0.317,TZ="Africa/Accra";
+var COCONUT_PLANTED="2026-08-24",ESTABLISH_DAYS=90;
+var RAIN_SKIP_MM=15,CASSAVA_SKIP_MM=8,FLOW=15,LOSS=1.2;
 
-/* trees: fixed litres. crops: litres = mm x area x LOSS, null until area is set */
 var TREES=[
-  {id:"coco", fr:"Cocoteraie (devant)", en:"Coconut field (front)", trees:150, per:45, chip:"c"},
-  {id:"p1",   fr:"Parc 1",              en:"Park 1",                trees:81,  per:40, chip:"p"},
-  {id:"p2",   fr:"Parc 2",              en:"Park 2",                trees:86,  per:40, chip:"p"}
-];
-TREES.forEach(function(b){ b.litres = Math.round(b.trees*b.per*LOSS/50)*50; b.kind="tree"; });
-
+ {id:"coco",fr:"Cocoteraie (devant)",en:"Coconut field (front)",trees:150,per:45},
+ {id:"p1",fr:"Parc 1",en:"Park 1",trees:81,per:40},
+ {id:"p2",fr:"Parc 2",en:"Park 2",trees:86,per:40}];
+TREES.forEach(function(b){b.litres=Math.round(b.trees*b.per*LOSS/50)*50;b.kind="tree";});
 var CROPS=[
-  {id:"maize",  fr:"Maïs",              en:"Maize",              mm:20, chip:"k"},
-  {id:"cass",   fr:"Manioc",            en:"Cassava",            mm:15, chip:"k"},
-  {id:"old",    fr:"Vieux arbres",      en:"Old trees",          mm:null, chip:"k"},
-  {id:"planN",  fr:"Plantain — nord",   en:"Plantain — north",   mm:null, chip:"k"},
-  {id:"planS",  fr:"Plantain — sud",    en:"Plantain — south",   mm:null, chip:"k"},
-  {id:"field",  fr:"Champ des ouvriers",en:"Workers' field",     mm:null, chip:"k"}
+ {id:"maize",fr:"Maïs",en:"Maize",mm:20},{id:"cass",fr:"Manioc",en:"Cassava",mm:15},
+ {id:"planN",fr:"Plantain — nord",en:"Plantain — north",mm:null},
+ {id:"planS",fr:"Plantain — sud",en:"Plantain — south",mm:null},
+ {id:"field",fr:"Champ des ouvriers",en:"Workers' field",mm:null}];
+CROPS.forEach(function(b){b.kind="crop";});
+var ALL=TREES.concat(CROPS);
+function block(id){for(var i=0;i<ALL.length;i++) if(ALL[i].id===id) return ALL[i];}
+
+/* ---------- species care ---------- */
+var SPECIES=[
+{k:"coconut",fr:"Cocotier",en:"Coconut",sci:"Cocos nucifera",
+ w:{fr:"45 L tous les 4 jours les deux premières années. Ne jamais laisser sécher un jeune plant.",en:"45 L every 4 days for the first two years. Never let a young palm dry out."},
+ f:{fr:"Riche en potassium, trois fois par an. Enterrer les bourres de coco autour du pied : c'est une pratique reconnue contre la sécheresse.",en:"Potassium-rich feed three times a year. Bury coconut husks around the base — husk burial is a recognised drought-mitigation practice."},
+ r:{fr:"Jaunissement mortel de Cape Saint Paul, présent au Ghana depuis 1932 et responsable de la destruction d'environ 11 500 ha. Aussi le charançon rhinocéros.",en:"Cape Saint Paul Wilt Disease, present in Ghana since 1932 and responsible for destroying an estimated 11,500 ha. Also rhinoceros beetle."},
+ p:{fr:"Aucun traitement : abattre et brûler tout palmier atteint sans attendre. La variété West African Tall est très sensible ; Catigan et Tacunan Green Dwarf ont montré une résistance relativement élevée.",en:"There is no cure — fell and burn any affected palm at once. West African Tall is highly susceptible; Catigan and Tacunan Green Dwarf showed relatively high resistance."}},
+{k:"mahogany",fr:"Mahogany",en:"Mahogany",sci:"Khaya sp.",
+ w:{fr:"40 L par tour. Supporte mal l'eau stagnante.",en:"40 L per round. Does not tolerate standing water."},
+ f:{fr:"Compost au pied en début de saison des pluies. Pailler largement.",en:"Compost at the base at the start of the rains. Mulch generously."},
+ r:{fr:"Le foreur des pousses Hypsipyla robusta attaque la flèche terminale et ruine la forme de l'arbre.",en:"The shoot borer Hypsipyla robusta attacks the leading shoot and ruins the tree's form."},
+ p:{fr:"Planter en mélange plutôt qu'en bloc pur, et garder un léger ombrage les premières années : l'attaque est plus rare à l'ombre.",en:"Plant mixed rather than in a pure block, and keep light shade for the first years — attack is less common in shade."}},
+{k:"cedrela",fr:"Ciderla",en:"Ciderla",sci:"probablement Cedrela odorata",sciEn:"probably Cedrela odorata",
+ note:true,
+ w:{fr:"40 L par tour.",en:"40 L per round."},
+ f:{fr:"Compost annuel. Croissance rapide, peu exigeant.",en:"Annual compost. Fast-growing and undemanding."},
+ r:{fr:"Même foreur des pousses que le mahogany.",en:"The same shoot borer as mahogany."},
+ p:{fr:"Ne pas planter en bloc pur à côté des mahoganys : cela concentre le ravageur.",en:"Do not plant in a pure block next to the mahoganies — it concentrates the pest."}},
+{k:"cinnamon",fr:"Cannelier",en:"Cinnamon",sci:"Cinnamomum verum",
+ w:{fr:"40 L par tour, régulier. Sol frais mais drainé.",en:"40 L per round, regularly. Soil moist but drained."},
+ f:{fr:"Compost deux fois par an.",en:"Compost twice a year."},
+ r:{fr:"Le plein soleil brûle les jeunes plants.",en:"Full sun scorches young plants."},
+ p:{fr:"Ombrer les deux premières années, avec des palmes ou une plante compagne.",en:"Shade for the first two years, with palm fronds or a companion plant."}},
+{k:"cananga",fr:"Cananga",en:"Cananga",sci:"Cananga odorata",
+ w:{fr:"40 L par tour.",en:"40 L per round."},
+ f:{fr:"Compost annuel. Pousse très vite.",en:"Annual compost. Grows very fast."},
+ r:{fr:"Bois cassant : les jeunes sujets se brisent au vent.",en:"Brittle wood — young trees snap in wind."},
+ p:{fr:"Tuteurer les deux premières années et tailler pour un tronc unique.",en:"Stake for the first two years and prune to a single trunk."}},
+{k:"flamboyant",fr:"Flamboyant",en:"Flamboyant",sci:"Delonix regia",
+ w:{fr:"40 L par tour la première année ; très résistant à la sécheresse ensuite.",en:"40 L per round in the first year; very drought-tolerant after that."},
+ f:{fr:"Peu de fertilisation. Trop d'azote donne des branches molles.",en:"Little feeding. Too much nitrogen gives weak branches."},
+ r:{fr:"Racines de surface agressives et branches cassantes.",en:"Aggressive surface roots and brittle branches."},
+ p:{fr:"Tenir à distance des canalisations et des dalles. Ne pas planter en bord d'allée étroite.",en:"Keep well away from pipes and paving. Do not plant beside a narrow path."}},
+{k:"mango",fr:"Manguier",en:"Mango",sci:"Mangifera indica",
+ w:{fr:"30 L par tour. Réduire nettement à la floraison.",en:"30 L per round. Cut back sharply at flowering."},
+ f:{fr:"Fumure organique deux fois par an, après la récolte et avant les pluies.",en:"Organic manure twice a year, after harvest and before the rains."},
+ r:{fr:"Anthracnose sur les fleurs et les fruits par temps humide ; mouches des fruits.",en:"Anthracnose on flowers and fruit in humid weather; fruit flies."},
+ p:{fr:"Aérer la couronne par la taille, ramasser et détruire tous les fruits tombés.",en:"Open the crown by pruning, and collect and destroy every fallen fruit."}},
+{k:"avocado",fr:"Avocatier",en:"Avocado",sci:"Persea americana",
+ w:{fr:"30 L par tour. C'est l'espèce la plus sensible à l'excès d'eau du site.",en:"30 L per round. This is the site's species most sensitive to excess water."},
+ f:{fr:"Paillage épais plutôt que engrais fort.",en:"Thick mulch rather than heavy fertiliser."},
+ r:{fr:"Pourriture des racines à Phytophthora — première cause de mortalité de l'avocatier.",en:"Phytophthora root rot — the leading cause of avocado death."},
+ p:{fr:"Planter sur butte, ne jamais laisser d'eau stagner au pied, sauter le tour après une forte pluie.",en:"Plant on a mound, never let water stand at the base, and skip the round after heavy rain."}},
+{k:"orange",fr:"Oranger",en:"Orange",sci:"Citrus sinensis",
+ w:{fr:"30 L par tour, régulier. Un stress hydrique fait tomber les fruits.",en:"30 L per round, regularly. Water stress drops the fruit."},
+ f:{fr:"Trois apports par an, avec du zinc et du magnésium si les feuilles jaunissent entre les nervures.",en:"Three feeds a year, with zinc and magnesium if leaves yellow between the veins."},
+ r:{fr:"Jaunissement des feuilles, gommose au collet.",en:"Leaf yellowing, and gummosis at the collar."},
+ p:{fr:"Ne jamais butter la terre contre le tronc. Garder le collet dégagé et sec.",en:"Never bank soil against the trunk. Keep the collar clear and dry."}},
+{k:"nutmeg",fr:"Muscadier",en:"Nutmeg",sci:"Myristica fragrans",
+ w:{fr:"40 L par tour. Ne supporte ni la sécheresse ni l'eau stagnante.",en:"40 L per round. Tolerates neither drought nor standing water."},
+ f:{fr:"Matière organique, jamais d'engrais fort.",en:"Organic matter, never strong fertiliser."},
+ r:{fr:"Espèce dioïque : un pied mâle est nécessaire pour que les femelles produisent. Sensible au vent.",en:"Dioecious — a male tree is needed for the females to produce. Wind-sensitive."},
+ p:{fr:"Garder au moins un mâle pour dix femelles et planter à l'abri du vent.",en:"Keep at least one male per ten females, and plant in shelter."}},
+{k:"prekese",fr:"Prekese",en:"Prekese",sci:"Tetrapleura tetraptera",
+ w:{fr:"40 L par tour la première année seulement.",en:"40 L per round in the first year only."},
+ f:{fr:"Peu exigeant : espèce indigène adaptée au climat local.",en:"Undemanding — an indigenous species suited to the local climate."},
+ r:{fr:"Peu de problèmes signalés.",en:"Few reported problems."},
+ p:{fr:"Dégager les herbes au pied les deux premières années.",en:"Keep weeds clear at the base for the first two years."}},
+{k:"ficus",fr:"Thonningii",en:"Thonningii",sci:"Ficus thonningii",
+ w:{fr:"40 L par tour la première année ; très rustique ensuite.",en:"40 L per round in the first year; very hardy after that."},
+ f:{fr:"Aucun apport nécessaire.",en:"No feeding needed."},
+ r:{fr:"Racines très envahissantes : soulèvent les dalles et bouchent les canalisations.",en:"Highly invasive roots — they lift paving and block pipes."},
+ p:{fr:"Ne jamais planter à moins de dix mètres d'une conduite ou d'un bâtiment.",en:"Never plant within ten metres of a pipe or a building."}},
+{k:"murraya",fr:"Muraya",en:"Muraya",sci:"Murraya paniculata",
+ w:{fr:"30 L par tour.",en:"30 L per round."},
+ f:{fr:"Compost léger deux fois par an.",en:"Light compost twice a year."},
+ r:{fr:"Cochenilles et fumagine noire sur les feuilles.",en:"Scale insects and black sooty mould on the leaves."},
+ p:{fr:"Inspecter le dessous des feuilles chaque mois ; traiter tôt au savon noir.",en:"Check the underside of the leaves monthly and treat early with soft soap."}},
+{k:"mimusops",fr:"Moimosps",en:"Moimosps",sci:"probablement Mimusops sp.",sciEn:"probably Mimusops sp.",
+ note:true,
+ w:{fr:"40 L par tour.",en:"40 L per round."},
+ f:{fr:"Compost annuel.",en:"Annual compost."},
+ r:{fr:"Croissance lente : ne pas confondre avec un manque d'eau.",en:"Slow-growing — do not mistake this for a lack of water."},
+ p:{fr:"Nom à confirmer auprès d'un botaniste avant tout traitement ciblé.",en:"Confirm the name with a botanist before any targeted treatment."}},
+{k:"quinine",fr:"Quinine",en:"Quinine",sci:"nom non confirmé",sciEn:"name not confirmed",
+ note:true,
+ w:{fr:"40 L par tour.",en:"40 L per round."},
+ f:{fr:"Compost annuel.",en:"Annual compost."},
+ r:{fr:"Espèce non identifiée avec certitude dans le document d'origine.",en:"The species is not certainly identified in the original document."},
+ p:{fr:"Faire identifier l'arbre avant d'appliquer un conseil spécifique.",en:"Have the tree identified before applying any specific advice."}},
+{k:"kv",fr:"KV",en:"KV",sci:"non défini",sciEn:"undefined",
+ note:true,
+ w:{fr:"40 L par tour, en attendant identification.",en:"40 L per round, pending identification."},
+ f:{fr:"—",en:"—"},
+ r:{fr:"« KV » apparaît dans la légende et le tableau du projet sans jamais être développé.",en:"\"KV\" appears in the project legend and schedule without ever being spelled out."},
+ p:{fr:"Trois sujets seulement sont concernés. Identifier l'espèce avant toute intervention.",en:"Only three trees are involved. Identify the species before doing anything to them."}},
+{k:"maize",fr:"Maïs",en:"Maize",sci:"Zea mays",crop:true,
+ w:{fr:"Jusqu'à 60 mm par semaine par temps chaud sans pluie, soit environ 2 à 3 litres par plant et par jour.",en:"Up to 60 mm a week in hot weather with no rain — roughly 2 to 3 litres per plant per day."},
+ f:{fr:"Azote au stade 4–6 feuilles, puis à la montaison.",en:"Nitrogen at the 4–6 leaf stage, then again before tasselling."},
+ r:{fr:"La chenille légionnaire d'automne. Un petit exploitant ghanéen peut perdre l'équivalent de 1 000 dollars, et six traitements insecticides successifs peuvent ne rien donner.",en:"Fall armyworm. A Ghanaian smallholder can lose the equivalent of US$1,000, and six successive insecticide sprays can achieve nothing."},
+ p:{fr:"Les méthodes recommandées au Ghana et réellement pratiquées : ramasser les pontes à la main sur les feuilles, désherber constamment, semer tôt, et mettre de la cendre ou du sable dans le cornet.",en:"The methods recommended in Ghana and actually practised: hand-pick egg masses off the leaves, weed constantly, plant early, and put ash or sand in the funnel."}},
+{k:"cassava",fr:"Manioc",en:"Cassava",sci:"Manihot esculenta",crop:true,
+ w:{fr:"Au moins 50 mm par mois pendant au moins six mois. Les trois premières semaines après bouturage sont décisives.",en:"At least 50 mm a month for at least six months. The first three weeks after planting the cuttings are decisive."},
+ f:{fr:"Potasse plutôt qu'azote. L'irrigation a doublé le rendement en racines dans les essais.",en:"Potash rather than nitrogen. Irrigation has doubled root yield in trials."},
+ r:{fr:"L'engorgement. Plus de 24 heures d'eau stagnante rabougrit les jeunes plants de 1 à 3 mois et fait pourrir les racines des plants adultes.",en:"Waterlogging. More than 24 hours of standing water stunts plants 1–3 months old and rots the roots of mature plants."},
+ p:{fr:"Planter sur billons, sauter le tour dès 8 mm de pluie sur 48 heures, et n'utiliser que des boutures saines.",en:"Plant on ridges, skip the round at 8 mm of rain over 48 hours, and use only clean, healthy cuttings."}},
+{k:"plantain",fr:"Plantain",en:"Plantain",sci:"Musa sp.",crop:true,note:true,
+ w:{fr:"Aucun chiffre vérifié pour ce site. À faire préciser par un agronome avant de renseigner la parcelle.",en:"No verified figure for this site. Have an agronomist set it before filling in the plot."},
+ f:{fr:"Fort besoin en potasse. Pailler épais avec les résidus de récolte.",en:"High potash demand. Mulch thickly with harvest residue."},
+ r:{fr:"Charançon du bananier et cercosporiose noire ; les touffes trop denses se couchent au vent.",en:"Banana weevil and black sigatoka; over-crowded stools blow over in wind."},
+ p:{fr:"Éliminer les rejets en surnombre, retirer les vieilles feuilles, étayer les régimes lourds.",en:"Remove surplus suckers, strip old leaves, and prop heavy bunches."}}
 ];
-CROPS.forEach(function(b){ b.kind="crop"; });
-var ALL = TREES.concat(CROPS);
-function block(id){ for(var i=0;i<ALL.length;i++) if(ALL[i].id===id) return ALL[i]; }
 
 /* ---------- storage ---------- */
-var KEY="miva-pokrom-v3";
-var storageOK=(function(){ try{localStorage.setItem("__t","1");localStorage.removeItem("__t");return true;}catch(e){return false;} })();
+var KEY="miva-pokrom-v5", PKEY="miva-pokrom-photos-v5";
+var storageOK=(function(){try{localStorage.setItem("__t","1");localStorage.removeItem("__t");return true;}catch(e){return false;}})();
 var mem=null;
-var DEFAULTS={ hoses:3, tank:2500, areas:{}, mm:{}, plantainOK:false, done:{} };
+var DEF={hoses:3,tank:2500,areas:{},mm:{},plantainOK:false,done:{},rain:{},losses:{}};
 function load(){
-  if(!storageOK) return mem || (mem=JSON.parse(JSON.stringify(DEFAULTS)));
-  try{ var d=JSON.parse(localStorage.getItem(KEY)); return d ? Object.assign(JSON.parse(JSON.stringify(DEFAULTS)),d) : JSON.parse(JSON.stringify(DEFAULTS)); }
-  catch(e){ return JSON.parse(JSON.stringify(DEFAULTS)); }
+ if(!storageOK) return mem||(mem=JSON.parse(JSON.stringify(DEF)));
+ try{var d=JSON.parse(localStorage.getItem(KEY));return d?Object.assign(JSON.parse(JSON.stringify(DEF)),d):JSON.parse(JSON.stringify(DEF));}
+ catch(e){return JSON.parse(JSON.stringify(DEF));}
 }
-var cfg=load();
-function save(){ if(!storageOK){ mem=cfg; return; } try{ localStorage.setItem(KEY,JSON.stringify(cfg)); }catch(e){} }
+function loadPhotos(){
+ if(!storageOK) return memPh||(memPh={});
+ try{return JSON.parse(localStorage.getItem(PKEY))||{};}catch(e){return {};}
+}
+var memPh=null;
+var cfg=load(), photos=loadPhotos();
+function save(){
+ if(!storageOK){mem=cfg;return true;}
+ try{localStorage.setItem(KEY,JSON.stringify(cfg));return true;}catch(e){return false;}
+}
+function savePhotos(){
+ if(!storageOK){memPh=photos;return true;}
+ try{localStorage.setItem(PKEY,JSON.stringify(photos));return true;}
+ catch(e){alert(t("full"));return false;}
+}
+/* localStorage holds UTF-16: each character costs about two bytes of quota. */
+function bytesUsed(){try{return JSON.stringify(photos).length*2;}catch(e){return 0;}}
+var QUOTA=5*1024*1024;
+function shift(d,k){var x=new Date(d);x.setDate(x.getDate()+k);return x;}
 
-/* ---------- volumes and time ---------- */
-function litresOf(b){
-  if(b.kind==="tree") return b.litres;
-  var a=cfg.areas[b.id], mm=(cfg.mm[b.id]!=null?cfg.mm[b.id]:b.mm);
-  if(!a || !mm) return null;
-  return Math.round(a*mm*LOSS/50)*50;
-}
-function minutesFor(l){ return l==null ? null : l/(cfg.hoses*FLOW); }
-function hoursTxt(l){
-  var m=minutesFor(l); if(m==null) return "—";
-  var h=m/60; return h<1 ? Math.round(m)+" min" : h.toFixed(1)+" h";
-}
-
-/* ---------- schedule ---------- */
-function dow(d){ return (d.getDay()+6)%7; }
-function iso(d){ return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0"); }
-function daysSince(s,d){ return Math.floor((d-new Date(s+"T00:00:00"))/86400000); }
+/* ---------- helpers ---------- */
+function dow(d){return (d.getDay()+6)%7;}
+function iso(d){return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");}
+function daysSince(s,d){return Math.floor((d-new Date(s+"T00:00:00"))/86400000);}
 var DRY=[11,0,1,2];
-
+function litresOf(b){
+ if(b.kind==="tree") return b.litres;
+ var a=cfg.areas[b.id],mm=(cfg.mm[b.id]!==undefined?cfg.mm[b.id]:b.mm);
+ if(!a||!mm) return null;
+ return Math.round(a*mm*LOSS/50)*50;
+}
+function hoursTxt(l){ if(l==null) return "—"; var m=l/(cfg.hoses*FLOW); return m<60?Math.round(m)+" min":(m/60).toFixed(1)+" h"; }
 function planFor(date){
-  var w=dow(date), dry=DRY.indexOf(date.getMonth())>-1;
-  var young=daysSince(COCONUT_PLANTED,date)<ESTABLISH_DAYS;
-  var am=[], pm=[];
-  if(young||dry){ if(w===0||w===2||w===4) am.push("coco"); }
-  else { if(w===0||w===3) am.push("coco"); }
-  if(dry){ if(w===1||w===3||w===5) am.push("p1","p2"); }
-  else { if(w===1||w===5) am.push("p1","p2"); }
-  if(w===1||w===4) pm.push("maize");
-  if(w===2) pm.push("cass","old");
-  if(w===3) pm.push("planN","planS");
-  return {am:am, pm:pm};
+ var w=dow(date),dry=DRY.indexOf(date.getMonth())>-1,young=daysSince(COCONUT_PLANTED,date)<ESTABLISH_DAYS;
+ var am=[],pm=[];
+ if(young||dry){if(w===0||w===2||w===4) am.push("coco");} else {if(w===0||w===3) am.push("coco");}
+ if(dry){if(w===1||w===3||w===5) am.push("p1","p2");} else {if(w===1||w===5) am.push("p1","p2");}
+ if(w===1||w===4) pm.push("maize");
+ if(w===2) pm.push("cass");
+ if(w===3) pm.push("planN","planS");
+ return {am:am,pm:pm};
 }
-function slotLitres(ids){
-  var t=0, unset=false;
-  ids.forEach(function(id){ var l=litresOf(block(id)); if(l==null) unset=true; else t+=l; });
-  return {litres:t, unset:unset};
-}
+function slotLitres(ids){var t=0,u=false;ids.forEach(function(id){var l=litresOf(block(id));if(l==null)u=true;else t+=l;});return {litres:t,unset:u};}
 
 /* ---------- language ---------- */
 var lang="fr";
 var T={
- fr:{weather:"MÉTÉO & CONDITIONS",blocks:"PARCELLES",budget:"EAU DU MOIS",dose:"DOSE PAR ARBRE",rhythm:"RYTHME",
-     hose:"TUYAUX EN SERVICE",areas:"SURFACES DES CULTURES (m²)",other:"AUTRES RÉGLAGES",
-     navToday:"Aujourd'hui",navCal:"Calendrier",navGuide:"Guide",navSet:"Réglages",today:"Aujourd'hui",
-     print:"Imprimer ce mois",morning:"MATIN · 6h–9h",afternoon:"APRÈS-MIDI · à partir de 16h",
-     nothing:"Rien de prévu",rest:"Jour de repos",skipRain:"PLUIE — NE PAS ARROSER",
-     rained:"Il est tombé",last48:"de pluie ces 48 dernières heures.",
-     trees:"arbres",with3:"avec",hoses:"tuyaux",provisional:"À CONFIRMER",noArea:"SURFACE NON RENSEIGNÉE",
-     precip:"Précipitations",prob:"Probabilité",hum:"Humidité",wind:"Vitesse du vent",
-     months:["janvier","février","mars","avril","mai","juin","juillet","août","septembre","octobre","novembre","décembre"],
-     dows:["lun","mar","mer","jeu","ven","sam","dim"],total:"Total",rounds:"tours",
-     weekAvg:"Soit environ",perWeek:"litres par semaine ce mois-ci, soit",fills:"remplissages du réservoir.",
-     ruleTitle:"Sauter le tour s'il a plu",
-     ruleBody:"Ne pas arroser si 15 mm ou plus sont tombés dans les 48 dernières heures. Le manioc s'arrête plus tôt, à 8 mm, car il pourrit s'il reste gorgé d'eau plus de 24 heures. Vérification à la main : enfoncer un bâton de 15 cm dans la terre au bord du houppier. S'il ressort avec de la terre humide collée, sauter cette parcelle.",
-     doseNote:"Arroser tôt le matin ou en fin d'après-midi, jamais à midi. Verser lentement au pied. Volumes calculés avec 20 % de perte à la distribution.",
-     hoseNote:"Un tuyau débite environ 15 litres par minute. Le nombre de tuyaux ouverts en même temps décide de la durée d'un tour, pas le nombre de personnes.",
-     areaNote:"Les cultures se calculent à la surface : 1 mm d'eau sur 1 m² fait exactement 1 litre. Mesurer chaque parcelle sur la carte MIVA. Tant qu'une surface est vide, la parcelle n'est pas comptée.",
-     tank:"Capacité du réservoir (L)",oldCount:"Vieux arbres — nombre",plantainQ:"Jeudi plantain confirmé",
-     weatherFail:"Météo indisponible — vérifier le ciel et le sol à la main."},
- en:{weather:"WEATHER & CONDITIONS",blocks:"BLOCKS",budget:"WATER THIS MONTH",dose:"LITRES PER TREE",rhythm:"RHYTHM",
-     hose:"HOSES RUNNING",areas:"CROP PLOT AREAS (m²)",other:"OTHER SETTINGS",
-     navToday:"Today",navCal:"Calendar",navGuide:"Guide",navSet:"Settings",today:"Today",
-     print:"Print this month",morning:"MORNING · 6–9am",afternoon:"LATE AFTERNOON · from 4pm",
-     nothing:"Nothing scheduled",rest:"Rest day",skipRain:"RAIN — DO NOT WATER",
-     rained:"There has been",last48:"of rain in the last 48 hours.",
-     trees:"trees",with3:"with",hoses:"hoses",provisional:"TO CONFIRM",noArea:"AREA NOT SET",
-     precip:"Rainfall",prob:"Chance of rain",hum:"Humidity",wind:"Wind speed",
-     months:["January","February","March","April","May","June","July","August","September","October","November","December"],
-     dows:["Mon","Tue","Wed","Thu","Fri","Sat","Sun"],total:"Total",rounds:"rounds",
-     weekAvg:"That is about",perWeek:"litres a week this month —",fills:"tank fills.",
-     ruleTitle:"Skip the round if it has rained",
-     ruleBody:"Do not water if 15 mm or more fell in the last 48 hours. Cassava stops earlier, at 8 mm, because it rots if waterlogged for more than 24 hours. To check by hand: push a stick 15 cm into the soil at the edge of the canopy. If it comes out with damp soil sticking to it, skip that block.",
-     doseNote:"Water early morning or late afternoon, never at midday. Pour slowly at the base. Volumes include a 20% allowance for delivery loss.",
-     hoseNote:"One hose delivers about 15 litres a minute. How long a round takes is decided by how many hoses run at once, not by how many people are working.",
-     areaNote:"Crops are measured by area: 1 mm of water over 1 m² is exactly 1 litre. Measure each plot on the MIVA map. While an area is blank, that block is not counted.",
-     tank:"Tank capacity (L)",oldCount:"Old trees — count",plantainQ:"Thursday plantain confirmed",
-     weatherFail:"Weather unavailable — check the sky and the soil by hand."}
+fr:{weather:"MÉTÉO & CONDITIONS",blocks:"PARCELLES",budget:"EAU DU MOIS",dose:"DOSE PAR ARBRE",
+ hose:"TUYAUX EN SERVICE",areas:"SURFACES DES CULTURES (m²)",other:"AUTRES RÉGLAGES",
+ photo:"SUIVI PHOTO",sp:"ESPÈCES ET SOINS",
+ navToday:"Auj.",navCal:"Calend.",navTrack:"Suivi",navSp:"Espèces",navSet:"Réglages",
+ loss:"SURVIE DES PLANTATIONS",alive:"vivants",dead:"perdus",addLoss:"Noter",
+ lossQ:"Combien d'arbres perdus depuis le dernier relevé ?",
+ lossNote:"Compter les manquants une fois par mois, parcelle par parcelle. C'est la mesure qui dira si l'arrosage suffit, bien avant que la croissance ne le montre.",
+ gauge:"Pluie relevée au pluviomètre aujourd'hui",gaugeSave:"Noter",measured:"MESURE AU PLUVIOMÈTRE",
+ restTitle:"Jour de repos",restBody:"Aucun arrosage aujourd'hui. Prochain tour lundi matin.",
+ today:"Aujourd'hui",print:"Imprimer ce mois",morning:"MATIN · 6h–9h",afternoon:"APRÈS-MIDI · à partir de 16h",
+ nothing:"Rien de prévu",skipRain:"PLUIE — NE PAS ARROSER",rained:"Il est tombé",last48:"de pluie ces 48 dernières heures.",
+ trees:"arbres",with3:"avec",hoses:"tuyaux",provisional:"À CONFIRMER",noArea:"SURFACE NON RENSEIGNÉE",
+ precip:"Précipitations",prob:"Probabilité",hum:"Humidité",wind:"Vitesse du vent",
+ months:["janvier","février","mars","avril","mai","juin","juillet","août","septembre","octobre","novembre","décembre"],
+ dows:["lun","mar","mer","jeu","ven","sam","dim"],total:"Total",rounds:"tours",
+ weekAvg:"Soit environ",perWeek:"litres par semaine ce mois-ci, soit",fills:"remplissages du réservoir.",
+ ruleTitle:"Sauter le tour s'il a plu",
+ ruleBody:"Ne pas arroser si 15 mm ou plus sont tombés dans les 48 dernières heures. Le manioc s'arrête plus tôt, à 8 mm. Vérification à la main : enfoncer un bâton de 15 cm dans la terre au bord du houppier. S'il ressort avec de la terre humide collée, sauter cette parcelle.",
+ doseNote:"Arroser tôt le matin ou en fin d'après-midi, jamais à midi. Volumes calculés avec 20 % de perte à la distribution.",
+ hoseNote:"Un tuyau débite environ 15 litres par minute. C'est le nombre de tuyaux ouverts en même temps qui décide de la durée d'un tour, pas le nombre de personnes.",
+ areaNote:"1 mm d'eau sur 1 m² fait exactement 1 litre. Mesurer chaque parcelle sur la carte MIVA. Tant qu'une surface est vide, la parcelle n'est pas comptée.",
+ tank:"Capacité du réservoir (L)",plantainQ:"Jeudi plantain confirmé",
+ weatherFail:"Météo indisponible — vérifier le ciel et le sol à la main.",
+ take:"Prendre une photo",galEmpty:"Aucune photo pour cette parcelle. Prendre la première aujourd'hui, puis une par mois au même endroit.",
+ used:"utilisés sur environ 5 Mo. Les photos sont stockées uniquement sur ce téléphone : effacer les données du navigateur les supprime. Exporter régulièrement.",
+ export:"Exporter les photos",full:"Mémoire pleine. Exporter puis supprimer d'anciennes photos.",
+ delQ:"Supprimer cette photo ?",water:"ARROSAGE",feed:"FERTILISATION",risk:"PROBLÈME COURANT",prevent:"PRÉVENTION",
+ spNote:"Nom d'espèce non confirmé dans les documents du projet. Faire identifier avant tout traitement."},
+en:{weather:"WEATHER & CONDITIONS",blocks:"BLOCKS",budget:"WATER THIS MONTH",dose:"LITRES PER TREE",
+ hose:"HOSES RUNNING",areas:"CROP PLOT AREAS (m²)",other:"OTHER SETTINGS",
+ photo:"GROWTH PHOTOS",sp:"SPECIES AND CARE",
+ navToday:"Today",navCal:"Calendar",navTrack:"Tracking",navSp:"Species",navSet:"Settings",
+ loss:"PLANTING SURVIVAL",alive:"alive",dead:"lost",addLoss:"Record",
+ lossQ:"How many trees lost since the last count?",
+ lossNote:"Count the missing once a month, block by block. This is the measure that will tell you whether the watering is enough, long before growth does.",
+ gauge:"Rain measured in the gauge today",gaugeSave:"Record",measured:"MEASURED IN THE GAUGE",
+ restTitle:"Rest day",restBody:"No watering today. Next round is Monday morning.",
+ today:"Today",print:"Print this month",morning:"MORNING · 6–9am",afternoon:"LATE AFTERNOON · from 4pm",
+ nothing:"Nothing scheduled",skipRain:"RAIN — DO NOT WATER",rained:"There has been",last48:"of rain in the last 48 hours.",
+ trees:"trees",with3:"with",hoses:"hoses",provisional:"TO CONFIRM",noArea:"AREA NOT SET",
+ precip:"Rainfall",prob:"Chance of rain",hum:"Humidity",wind:"Wind speed",
+ months:["January","February","March","April","May","June","July","August","September","October","November","December"],
+ dows:["Mon","Tue","Wed","Thu","Fri","Sat","Sun"],total:"Total",rounds:"rounds",
+ weekAvg:"That is about",perWeek:"litres a week this month —",fills:"tank fills.",
+ ruleTitle:"Skip the round if it has rained",
+ ruleBody:"Do not water if 15 mm or more fell in the last 48 hours. Cassava stops earlier, at 8 mm. To check by hand: push a stick 15 cm into the soil at the edge of the canopy. If it comes out with damp soil sticking to it, skip that block.",
+ doseNote:"Water early morning or late afternoon, never at midday. Volumes include a 20% allowance for delivery loss.",
+ hoseNote:"One hose delivers about 15 litres a minute. How long a round takes is decided by how many hoses run at once, not how many people are working.",
+ areaNote:"1 mm of water over 1 m² is exactly 1 litre. Measure each plot on the MIVA map. While an area is blank, that block is not counted.",
+ tank:"Tank capacity (L)",plantainQ:"Thursday plantain confirmed",
+ weatherFail:"Weather unavailable — check the sky and the soil by hand.",
+ take:"Take a photo",galEmpty:"No photos for this block yet. Take the first today, then one a month from the same spot.",
+ used:"used of about 5 MB. Photos are stored only on this phone — clearing the browser data deletes them. Export regularly.",
+ export:"Export photos",full:"Storage full. Export, then delete older photos.",
+ delQ:"Delete this photo?",water:"WATERING",feed:"FEEDING",risk:"COMMON PROBLEM",prevent:"PREVENTION",
+ spNote:"Species name not confirmed in the project documents. Have it identified before any treatment."}
 };
-function t(k){ return T[lang][k]; }
-function fmt(n){ return Math.round(n).toLocaleString(lang==="fr"?"fr-FR":"en-GB"); }
+function t(k){return T[lang][k];}
+function fmt(n){return Math.round(n).toLocaleString(lang==="fr"?"fr-FR":"en-GB");}
 
 /* ---------- weather ---------- */
-var WX=null, wxDay=0;
-function wxIcon(code){
-  var s=44,c="var(--green)";
-  function svg(i){ return '<svg width="'+s+'" height="'+s+'" viewBox="0 0 48 48" fill="none" stroke="'+c+'" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">'+i+'</svg>'; }
-  var sun='<circle cx="17" cy="16" r="6"/><path d="M17 4v3M17 25v3M5 16h3M26 16h3M9 8l2 2M25 8l-2 2M9 24l2-2"/>';
-  var cloud='<path d="M14 40h20a7 7 0 0 0 .6-14 10 10 0 0 0-19.3 2A6 6 0 0 0 14 40Z"/>';
-  var drops='<path d="M18 44l-1.5 3M25 44l-1.5 3M32 44l-1.5 3"/>';
-  if(code===0||code===1) return svg('<circle cx="24" cy="24" r="9"/><path d="M24 6v5M24 37v5M6 24h5M37 24h5M11 11l3.5 3.5M33.5 33.5 37 37M37 11l-3.5 3.5M14.5 33.5 11 37"/>');
-  if(code===2) return svg(sun+cloud);
-  if(code===3||code===45||code===48) return svg(cloud);
-  if(code>=95) return svg(cloud+'<path d="M25 42l-4 6h6l-4 6"/>');
-  return svg(sun+cloud+drops);
+var WX=null,wxDay=0;
+function wxIcon(c){
+ function svg(i){return '<svg width="44" height="44" viewBox="0 0 48 48" fill="none" stroke="var(--green)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">'+i+'</svg>';}
+ var sun='<circle cx="17" cy="16" r="6"/><path d="M17 4v3M17 25v3M5 16h3M26 16h3M9 8l2 2M25 8l-2 2M9 24l2-2"/>';
+ var cl='<path d="M14 40h20a7 7 0 0 0 .6-14 10 10 0 0 0-19.3 2A6 6 0 0 0 14 40Z"/>';
+ var dr='<path d="M18 44l-1.5 3M25 44l-1.5 3M32 44l-1.5 3"/>';
+ if(c===0||c===1) return svg('<circle cx="24" cy="24" r="9"/><path d="M24 6v5M24 37v5M6 24h5M37 24h5M11 11l3.5 3.5M33.5 33.5 37 37M37 11l-3.5 3.5M14.5 33.5 11 37"/>');
+ if(c===2) return svg(sun+cl);
+ if(c===3||c===45||c===48) return svg(cl);
+ if(c>=95) return svg(cl+'<path d="M25 42l-4 6h6l-4 6"/>');
+ return svg(sun+cl+dr);
 }
 function loadWeather(){
-  fetch("https://api.open-meteo.com/v1/forecast?latitude="+LAT+"&longitude="+LON
-    +"&daily=weather_code,temperature_2m_max,precipitation_sum,precipitation_probability_max"
-    +"&hourly=temperature_2m,precipitation,relative_humidity_2m,wind_speed_10m"
-    +"&past_days=2&forecast_days=7&timezone="+encodeURIComponent(TZ))
-  .then(function(r){return r.json();})
-  .then(function(j){ WX=j; renderWeather(); renderToday(); })
-  .catch(function(){ WX="fail"; renderWeather(); renderToday(); });
+ fetch("https://api.open-meteo.com/v1/forecast?latitude="+LAT+"&longitude="+LON
+ +"&daily=weather_code,temperature_2m_max,precipitation_sum,precipitation_probability_max"
+ +"&hourly=temperature_2m,precipitation,relative_humidity_2m,wind_speed_10m"
+ +"&past_days=2&forecast_days=7&timezone="+encodeURIComponent(TZ))
+ .then(function(r){return r.json();}).then(function(j){WX=j;renderWeather();renderToday();})
+ .catch(function(){WX="fail";renderWeather();renderToday();});
 }
+/* A reading from the gauge on site always beats the forecast. */
 function rain48(){
-  if(!WX||WX==="fail"||!WX.daily) return null;
-  var i=WX.daily.time.indexOf(iso(new Date()));
-  if(i<2) return null;
-  return (WX.daily.precipitation_sum[i-1]||0)+(WX.daily.precipitation_sum[i-2]||0);
+ var now=new Date(),m1=cfg.rain[iso(shift(now,-1))],m2=cfg.rain[iso(shift(now,-2))];
+ var meas=(m1!=null||m2!=null);
+ var f1=null,f2=null;
+ if(WX&&WX!=="fail"&&WX.daily){
+  var i=WX.daily.time.indexOf(iso(now));
+  if(i>=2){f1=WX.daily.precipitation_sum[i-1]||0;f2=WX.daily.precipitation_sum[i-2]||0;}
+ }
+ var a=(m1!=null?m1:f1),b=(m2!=null?m2:f2);
+ if(a==null&&b==null) return null;
+ return {mm:(a||0)+(b||0),measured:meas};
 }
+function lost(id){return (cfg.losses[id]||[]).reduce(function(s,x){return s+x.n;},0);}
 function renderWeather(){
-  var tabs=document.getElementById("daytabs"), body=document.getElementById("wbody");
-  if(WX==="fail"||!WX||!WX.daily){ tabs.innerHTML=""; body.innerHTML='<p class="wnote">'+t("weatherFail")+'</p>'; return; }
-  var days=WX.daily.time, start=days.indexOf(iso(new Date())); if(start<0) start=0;
-  tabs.innerHTML=days.slice(start,start+6).map(function(d,i){
-    var dt=new Date(d+"T00:00:00");
-    return '<button class="daytab'+(i===wxDay?" on":"")+'" data-wd="'+i+'">'
-      +(i===0?t("today"):t("dows")[dow(dt)]+".")
-      +'<span class="dt">'+dt.getDate()+"/"+(dt.getMonth()+1)+'</span></button>';
-  }).join("");
-  var k=start+wxDay, d=new Date(days[k]+"T00:00:00");
-  var h0=WX.hourly.time.indexOf(days[k]+"T00:00"), nowH=new Date().getHours();
-  var hourHtml=h0<0?"":[9,12,15,18,21].map(function(h){
-    return '<div class="whr'+((wxDay===0&&Math.abs(h-nowH)<2)?" now":"")+'"><b>'
-      +Math.round(WX.hourly.temperature_2m[h0+h])+'°</b>'+String(h).padStart(2,"0")+':00</div>';
-  }).join("");
-  function avg(a){ if(h0<0) return null; var s=0,n=0; for(var i=h0;i<h0+24&&i<a.length;i++){s+=a[i];n++;} return n?s/n:null; }
-  var hum=avg(WX.hourly.relative_humidity_2m), wind=avg(WX.hourly.wind_speed_10m);
-  body.innerHTML='<div class="wnow"><div class="wday">'+t("dows")[dow(d)]+". "+d.getDate()+" "+t("months")[d.getMonth()]+'</div>'
-    +'<div class="wtemp"><b>'+Math.round(WX.daily.temperature_2m_max[k])+'°C</b>'+wxIcon(WX.daily.weather_code[k])+'</div></div>'
-    +'<div class="wmetrics">'
-    +'<div><span>'+t("precip")+'</span><b>'+(WX.daily.precipitation_sum[k]||0).toFixed(2)+' mm</b></div>'
-    +'<div><span>'+t("prob")+'</span><b>'+(WX.daily.precipitation_probability_max[k]||0)+'%</b></div>'
-    +'<div><span>'+t("hum")+'</span><b>'+(hum==null?"—":Math.round(hum)+"%")+'</b></div>'
-    +'<div><span>'+t("wind")+'</span><b>'+(wind==null?"—":Math.round(wind)+" km/h")+'</b></div></div>'
-    +'<div class="whours">'+hourHtml+'</div>';
-  tabs.querySelectorAll("[data-wd]").forEach(function(b){ b.onclick=function(){ wxDay=+b.dataset.wd; renderWeather(); }; });
+ var tabs=document.getElementById("daytabs"),body=document.getElementById("wbody");
+ document.getElementById("gaugeLbl").textContent=t("gauge");
+ document.getElementById("gaugeSave").textContent=t("gaugeSave");
+ var tm=cfg.rain[iso(new Date())];
+ document.getElementById("gaugeIn").value=tm!=null?tm:"";
+ if(WX==="fail"||!WX||!WX.daily){tabs.innerHTML="";body.innerHTML='<p class="wnote">'+t("weatherFail")+'</p>';return;}
+ var days=WX.daily.time,start=days.indexOf(iso(new Date()));if(start<0)start=0;
+ tabs.innerHTML=days.slice(start,start+6).map(function(d,i){
+  var dt=new Date(d+"T00:00:00");
+  return '<button class="daytab'+(i===wxDay?" on":"")+'" data-wd="'+i+'">'+(i===0?t("today"):t("dows")[dow(dt)]+".")
+   +'<span class="dt">'+dt.getDate()+"/"+(dt.getMonth()+1)+'</span></button>';}).join("");
+ var k=start+wxDay,d=new Date(days[k]+"T00:00:00");
+ var h0=WX.hourly.time.indexOf(days[k]+"T00:00"),nowH=new Date().getHours();
+ var hh=h0<0?"":[9,12,15,18,21].map(function(h){
+  return '<div class="whr'+((wxDay===0&&Math.abs(h-nowH)<2)?" now":"")+'"><b>'+Math.round(WX.hourly.temperature_2m[h0+h])+'°</b>'+String(h).padStart(2,"0")+':00</div>';}).join("");
+ function avg(a){if(h0<0)return null;var s=0,n=0;for(var i=h0;i<h0+24&&i<a.length;i++){s+=a[i];n++;}return n?s/n:null;}
+ var hum=avg(WX.hourly.relative_humidity_2m),wind=avg(WX.hourly.wind_speed_10m);
+ body.innerHTML='<div class="wnow"><div class="wday">'+t("dows")[dow(d)]+". "+d.getDate()+" "+t("months")[d.getMonth()]+'</div>'
+ +'<div class="wtemp"><b>'+Math.round(WX.daily.temperature_2m_max[k])+'°C</b>'+wxIcon(WX.daily.weather_code[k])+'</div></div>'
+ +'<div class="wmetrics"><div><span>'+t("precip")+'</span><b>'+(WX.daily.precipitation_sum[k]||0).toFixed(2)+' mm</b></div>'
+ +'<div><span>'+t("prob")+'</span><b>'+(WX.daily.precipitation_probability_max[k]||0)+'%</b></div>'
+ +'<div><span>'+t("hum")+'</span><b>'+(hum==null?"—":Math.round(hum)+"%")+'</b></div>'
+ +'<div><span>'+t("wind")+'</span><b>'+(wind==null?"—":Math.round(wind)+" km/h")+'</b></div></div>'
+ +'<div class="whours">'+hh+'</div>';
+ tabs.querySelectorAll("[data-wd]").forEach(function(b){b.onclick=function(){wxDay=+b.dataset.wd;renderWeather();};});
 }
 
 /* ---------- today ---------- */
-function slotHtml(ids, isPM, wet){
-  var cls="slot"+(isPM?" pm":"")+(ids.length?"":" off");
-  var head='<div class="when">'+(isPM?t("afternoon"):t("morning"))+'</div>';
-  if(!ids.length) return '<div class="'+cls+'">'+head+'<h2>'+t("nothing")+'</h2></div>';
-  var prov = isPM && ids.indexOf("planN")>-1 && !cfg.plantainOK;
-  var names=ids.map(function(id){ return block(id)[lang]; }).join(" + ");
-  var s=slotLitres(ids);
-  var body='<h2>'+names+'</h2>';
-  if(wet) body='<span class="pill skip">'+t("skipRain")+'</span>'+body;
-  else if(prov) body='<span class="pill prov">'+t("provisional")+'</span>'+body;
-  else if(s.unset) body='<span class="pill unset">'+t("noArea")+'</span>'+body;
-  if(!wet && s.litres) body+='<p class="sub"><b>'+fmt(s.litres)+' L</b> · '+hoursTxt(s.litres)
-    +' '+t("with3")+' '+cfg.hoses+' '+t("hoses")+'</p>';
-  return '<div class="'+cls+'">'+head+body+'</div>';
+function slotHtml(ids,pm,wet,meas){
+ var cls="slot"+(pm?" pm":"")+(ids.length?"":" off");
+ var head='<div class="when">'+(pm?t("afternoon"):t("morning"))+'</div>';
+ if(!ids.length) return '<div class="'+cls+'">'+head+'<h2>'+t("nothing")+'</h2></div>';
+ var prov=pm&&ids.indexOf("planN")>-1&&!cfg.plantainOK;
+ var s=slotLitres(ids),body='<h2>'+ids.map(function(i){return block(i)[lang];}).join(" + ")+'</h2>';
+ if(wet) body='<span class="pill skip">'+t("skipRain")+'</span>'
+   +(meas?' <span class="pill meas">'+t("measured")+'</span>':'')+body;
+ else if(prov) body='<span class="pill prov">'+t("provisional")+'</span>'+body;
+ else if(s.unset) body='<span class="pill unset">'+t("noArea")+'</span>'+body;
+ if(!wet&&s.litres) body+='<p class="sub"><b>'+fmt(s.litres)+' L</b> · '+hoursTxt(s.litres)+' '+t("with3")+' '+cfg.hoses+' '+t("hoses")+'</p>';
+ return '<div class="'+cls+'">'+head+body+'</div>';
 }
 function renderToday(){
-  var now=new Date(), p=planFor(now), r=rain48();
-  var wetTree = r!=null && r>=RAIN_SKIP_MM;
-  var wetCrop = r!=null && r>=CASSAVA_SKIP_MM;
-  var html=slotHtml(p.am,false,wetTree)+slotHtml(p.pm,true,wetCrop);
-  if(r!=null && (wetTree||wetCrop))
-    html+='<p class="note">'+t("rained")+" "+r.toFixed(1)+" mm "+t("last48")+'</p>';
-  document.getElementById("slots").innerHTML=html;
-
-  var key=iso(now), due=p.am.concat(p.pm);
-  document.getElementById("blocklist").innerHTML=ALL.map(function(b){
-    var l=litresOf(b), on=due.indexOf(b.id)>-1, k=key+"|"+b.id;
-    var meta = b.kind==="tree" ? b.trees+" "+t("trees")+" · "+b.per+" L"
-             : (cfg.areas[b.id] ? cfg.areas[b.id]+" m² · "+(cfg.mm[b.id]!=null?cfg.mm[b.id]:b.mm)+" mm" : t("noArea"));
-    return '<div class="blk"><div><div class="nm">'+b[lang]+'</div><div class="mt">'+meta+'</div></div>'
-      +'<div class="rt"><div class="lt">'+(l==null?"—":fmt(l)+" L")+'</div><div class="hr">'+hoursTxt(l)+'</div></div>'
-      +(on?'<button class="tickbtn'+(cfg.done[k]?" done":"")+'" data-tick="'+k+'"></button>':'<span style="width:26px;flex:none"></span>')
-      +'</div>';
-  }).join("");
-  document.querySelectorAll("[data-tick]").forEach(function(b){
-    b.onclick=function(){ var k=b.dataset.tick; cfg.done[k]=!cfg.done[k]; save(); renderToday(); };
-  });
+ var now=new Date(),p=planFor(now),r=rain48();
+ var mm=r?r.mm:null,meas=r?r.measured:false;
+ var wt=mm!=null&&mm>=RAIN_SKIP_MM, wc=mm!=null&&mm>=CASSAVA_SKIP_MM;
+ var h;
+ if(!p.am.length&&!p.pm.length){
+  h='<div class="restday"><h2>'+t("restTitle")+'</h2><p>'+t("restBody")+'</p></div>';
+ }else{
+  h=slotHtml(p.am,false,wt,meas)+slotHtml(p.pm,true,wc,meas);
+  if(mm!=null&&(wt||wc)) h+='<p class="note">'+t("rained")+" "+mm.toFixed(1)+" mm "+t("last48")+'</p>';
+ }
+ document.getElementById("slots").innerHTML=h;
+ var key=iso(now),due=p.am.concat(p.pm);
+ document.getElementById("blocklist").innerHTML=ALL.map(function(b){
+  var l=litresOf(b),on=due.indexOf(b.id)>-1,k=key+"|"+b.id;
+  var meta=b.kind==="tree"?(b.trees-lost(b.id))+" "+t("trees")+" · "+b.per+" L"
+   :(cfg.areas[b.id]?cfg.areas[b.id]+" m² · "+(cfg.mm[b.id]!==undefined?cfg.mm[b.id]:b.mm)+" mm":t("noArea"));
+  return '<div class="blk"><div><div class="nm">'+b[lang]+'</div><div class="mt">'+meta+'</div></div>'
+   +'<div class="rt"><div class="lt">'+(l==null?"—":fmt(l)+" L")+'</div><div class="hr">'+hoursTxt(l)+'</div></div>'
+   +(on?'<button class="tickbtn'+(cfg.done[k]?" done":"")+'" data-tick="'+k+'"></button>':'<span style="width:26px;flex:none"></span>')+'</div>';
+ }).join("");
+ document.querySelectorAll("[data-tick]").forEach(function(b){
+  b.onclick=function(){var k=b.dataset.tick;cfg.done[k]=!cfg.done[k];save();renderToday();};});
 }
 
 /* ---------- calendar ---------- */
-var view=new Date(); view.setDate(1);
+var view=new Date();view.setDate(1);
 function renderCal(){
-  var y=view.getFullYear(), m=view.getMonth();
-  document.getElementById("mlabel").textContent=t("months")[m]+" "+y;
-  document.getElementById("calhead").innerHTML=t("dows").map(function(d){return "<div>"+d+"</div>";}).join("");
-  var grid=document.getElementById("grid"); grid.innerHTML="";
-  var first=new Date(y,m,1), lead=dow(first), n=new Date(y,m+1,0).getDate(), todayKey=iso(new Date());
-  var tally={}, rounds={}; ALL.forEach(function(b){ tally[b.id]=0; rounds[b.id]=0; });
-
-  for(var i=0;i<lead;i++) grid.innerHTML+='<div class="cell blank"></div>';
-  for(var d=1;d<=n;d++){
-    var date=new Date(y,m,d), p=planFor(date), all=p.am.concat(p.pm);
-    var h='<div class="cell'+(iso(date)===todayKey?" now":"")+'"><span class="dn">'+d+'</span>';
-    all.forEach(function(id){ rounds[id]++; var l=litresOf(block(id)); if(l) tally[id]+=l; });
-    if(p.am.indexOf("coco")>-1) h+='<span class="chip c">'+(lang==="fr"?"Coco":"Coconut")+'</span>';
-    if(p.am.indexOf("p1")>-1)   h+='<span class="chip p">'+(lang==="fr"?"Parcs 1+2":"Parks 1+2")+'</span>';
-    if(p.pm.length) h+='<span class="chip k">'+p.pm.map(function(id){return block(id)[lang];}).join(", ")+'</span>';
-    if(all.length) h+='<span class="pbox"></span>';
-    grid.innerHTML+=h+'</div>';
-  }
-  var tail=(7-((lead+n)%7))%7;
-  for(var j=0;j<tail;j++) grid.innerHTML+='<div class="cell blank"></div>';
-
-  document.getElementById("legend").innerHTML=
-    '<span><i class="i-c"></i>'+(lang==="fr"?"Cocoteraie — matin":"Coconut field — morning")+'</span>'
-   +'<span><i class="i-p"></i>'+(lang==="fr"?"Parcs — matin":"Parks — morning")+'</span>'
-   +'<span><i class="i-k"></i>'+(lang==="fr"?"Cultures — après-midi":"Crops — afternoon")+'</span>';
-
-  var total=0;
-  document.getElementById("budget").innerHTML=ALL.map(function(b){
-    var l=litresOf(b); if(l) total+=tally[b.id];
-    return '<tr'+(l==null&&rounds[b.id]?' class="unset"':'')+'><td>'+b[lang]+'</td>'
-      +'<td class="n">'+rounds[b.id]+" "+t("rounds")+'</td>'
-      +'<td class="n"><b>'+(l==null?(rounds[b.id]?t("noArea"):"—"):fmt(tally[b.id])+" L")+'</b></td></tr>';
-  }).join("")+'<tr><td><b>'+t("total")+'</b></td><td></td><td class="n"><b>'+fmt(total)+' L</b></td></tr>';
-  var perWeek=total/(n/7);
-  document.getElementById("budgetnote").textContent=
-    t("weekAvg")+" "+fmt(perWeek)+" "+t("perWeek")+" "+(perWeek/cfg.tank).toFixed(1)+" "+t("fills");
+ var y=view.getFullYear(),m=view.getMonth();
+ document.getElementById("mlabel").textContent=t("months")[m]+" "+y;
+ document.getElementById("calhead").innerHTML=t("dows").map(function(d){return "<div>"+d+"</div>";}).join("");
+ var lead=dow(new Date(y,m,1)),n=new Date(y,m+1,0).getDate(),tk=iso(new Date());
+ var tally={},rounds={};ALL.forEach(function(b){tally[b.id]=0;rounds[b.id]=0;});
+ var out=[];   /* built as one string instead of 31 DOM writes */
+ for(var i=0;i<lead;i++) out.push('<div class="cell blank"></div>');
+ for(var d=1;d<=n;d++){
+  var date=new Date(y,m,d),p=planFor(date),all=p.am.concat(p.pm);
+  var h='<div class="cell'+(iso(date)===tk?" now":"")+'"><span class="dn">'+d+'</span>';
+  all.forEach(function(id){rounds[id]++;var l=litresOf(block(id));if(l)tally[id]+=l;});
+  if(p.am.indexOf("coco")>-1) h+='<span class="chip c">'+(lang==="fr"?"Coco":"Coconut")+'</span>';
+  if(p.am.indexOf("p1")>-1) h+='<span class="chip p">'+(lang==="fr"?"Parcs 1+2":"Parks 1+2")+'</span>';
+  if(p.pm.length) h+='<span class="chip k">'+p.pm.map(function(i){return block(i)[lang];}).join(", ")+'</span>';
+  if(all.length) h+='<span class="pbox"></span>';
+  out.push(h+'</div>');
+ }
+ var tail=(7-((lead+n)%7))%7;
+ for(var j=0;j<tail;j++) out.push('<div class="cell blank"></div>');
+ document.getElementById("grid").innerHTML=out.join("");
+ document.getElementById("legend").innerHTML=
+  '<span><i class="i-c"></i>'+(lang==="fr"?"Cocoteraie — matin":"Coconut — morning")+'</span>'
+ +'<span><i class="i-p"></i>'+(lang==="fr"?"Parcs — matin":"Parks — morning")+'</span>'
+ +'<span><i class="i-k"></i>'+(lang==="fr"?"Cultures — après-midi":"Crops — afternoon")+'</span>';
+ var total=0;
+ document.getElementById("budget").innerHTML=ALL.map(function(b){
+  var l=litresOf(b);if(l)total+=tally[b.id];
+  return '<tr'+(l==null&&rounds[b.id]?' class="unset"':'')+'><td>'+b[lang]+'</td><td class="n">'+rounds[b.id]+" "+t("rounds")
+   +'</td><td class="n"><b>'+(l==null?(rounds[b.id]?t("noArea"):"—"):fmt(tally[b.id])+" L")+'</b></td></tr>';}).join("")
+ +'<tr><td><b>'+t("total")+'</b></td><td></td><td class="n"><b>'+fmt(total)+' L</b></td></tr>';
+ var pw=total/(n/7);
+ document.getElementById("budgetnote").textContent=t("weekAvg")+" "+fmt(pw)+" "+t("perWeek")+" "+(pw/cfg.tank).toFixed(1)+" "+t("fills");
 }
 
-/* ---------- guide ---------- */
-function renderGuide(){
-  document.getElementById("rainrule").innerHTML="<b>"+t("ruleTitle")+"</b>"+t("ruleBody");
-  document.getElementById("doses").innerHTML=
-    '<tr><td>'+(lang==="fr"?"Cocotiers (jeunes plants)":"Coconut palms (young)")+'</td><td class="n"><b>45 L</b></td></tr>'
-   +'<tr><td>Mahogany, Cinnamon, Ciderla, Cananga, Moimosps, Quinine, Flamboyant, Thonningii, Prekese, Nutmeg, KV</td><td class="n"><b>40 L</b></td></tr>'
-   +'<tr><td>Mango, Avocado, Orange, Muraya</td><td class="n"><b>30 L</b></td></tr>';
-  document.getElementById("dosenote").textContent=t("doseNote");
-  var days=daysSince(COCONUT_PLANTED,new Date());
-  document.getElementById("rhythm").innerHTML= lang==="fr"
-    ? '<p style="font-size:.9rem">Cocoteraie plantée le 24 août 2026 — <b>'+days+' jours</b>. Matin, lundi / mercredi / vendredi pendant les 90 premiers jours, puis lundi et jeudi pendant les pluies, et de nouveau trois fois par semaine de décembre à mars.</p><p style="font-size:.9rem;margin-top:9px">Parcs 1 et 2, le matin : mardi et samedi pendant les pluies ; mardi, jeudi et samedi de décembre à mars.</p><p style="font-size:.9rem;margin-top:9px">Cultures, en fin d\'après-midi : maïs mardi et vendredi, manioc et vieux arbres mercredi, plantain jeudi (à confirmer).</p>'
-    : '<p style="font-size:.9rem">Coconut field planted 24 August 2026 — <b>'+days+' days ago</b>. Mornings, Monday / Wednesday / Friday for the first 90 days, then Monday and Thursday through the rains, and back to three times a week from December to March.</p><p style="font-size:.9rem;margin-top:9px">Parks 1 and 2, mornings: Tuesday and Saturday through the rains; Tuesday, Thursday and Saturday from December to March.</p><p style="font-size:.9rem;margin-top:9px">Crops, late afternoon: maize Tuesday and Friday, cassava and old trees Wednesday, plantain Thursday (to confirm).</p>';
+/* ---------- photos ---------- */
+function renderLoss(){
+ document.getElementById("lossList").innerHTML=TREES.map(function(b){
+  var d=lost(b.id),alive=b.trees-d,pct=Math.round(alive/b.trees*100);
+  return '<div class="lossrow"><div><div class="sv'+(pct<85?" bad":"")+'">'+alive+" / "+b.trees+" "+t("alive")+' · '+pct+'%</div>'
+   +'<div class="lm">'+b[lang]+(d?" · "+d+" "+t("dead"):"")+'</div></div>'
+   +'<button data-loss="'+b.id+'">'+t("addLoss")+'</button></div>';}).join("");
+ document.getElementById("lossnote").textContent=t("lossNote");
+ document.querySelectorAll("[data-loss]").forEach(function(b){
+  b.onclick=function(){
+   var v=prompt(t("lossQ"),"0");
+   if(v===null) return;
+   var k=parseInt(v,10);
+   if(!k||k<1) return;
+   if(!cfg.losses[b.dataset.loss]) cfg.losses[b.dataset.loss]=[];
+   cfg.losses[b.dataset.loss].push({d:iso(new Date()),n:k});
+   save();renderLoss();renderToday();};});
+}
+var picked="coco";
+function renderPhotos(){
+ document.getElementById("picker").innerHTML=ALL.map(function(b){
+  var n=(photos[b.id]||[]).length;
+  return '<button data-pick="'+b.id+'"'+(picked===b.id?' class="on"':'')+'>'+b[lang]+(n?" · "+n:"")+'</button>';}).join("");
+ document.querySelectorAll("[data-pick]").forEach(function(b){
+  b.onclick=function(){picked=b.dataset.pick;renderPhotos();};});
+ var list=(photos[picked]||[]).slice().sort(function(a,b){return a.d<b.d?1:-1;});
+ var gal=document.getElementById("gal"),emp=document.getElementById("galEmpty");
+ emp.textContent=t("galEmpty");emp.hidden=list.length>0;
+ gal.innerHTML=list.map(function(p,i){
+  return '<div class="shot"><img src="'+p.img+'" data-big="'+i+'" alt=""><span class="dt">'+p.d+'</span>'
+   +'<button class="del" data-del="'+i+'">×</button></div>';}).join("");
+ gal.querySelectorAll("[data-big]").forEach(function(im){
+  im.onclick=function(){
+   var lb=document.createElement("div");lb.className="lightbox";
+   lb.innerHTML='<img src="'+im.src+'" alt=""><div class="cap">'+list[+im.dataset.big].d+'</div>';
+   lb.onclick=function(){lb.remove();};document.body.appendChild(lb);};});
+ gal.querySelectorAll("[data-del]").forEach(function(b){
+  b.onclick=function(){
+   if(!confirm(t("delQ"))) return;
+   var p=list[+b.dataset.del];
+   photos[picked]=(photos[picked]||[]).filter(function(x){return x!==p;});
+   savePhotos();renderPhotos();};});
+ var used=bytesUsed(),pct=Math.min(100,used/QUOTA*100);
+ var bar=document.getElementById("meterBar");
+ bar.style.width=pct+"%";bar.className=pct>80?"hot":"";
+ document.getElementById("meterNote").textContent=(used/1048576).toFixed(2)+" Mo "+t("used");
+ document.getElementById("camLabel").textContent=t("take");
+ document.getElementById("exportBtn").textContent=t("export");
+}
+document.getElementById("cam").addEventListener("change",function(e){
+ var f=e.target.files&&e.target.files[0];if(!f) return;
+ var rd=new FileReader();
+ rd.onload=function(ev){
+  var im=new Image();
+  im.onload=function(){
+   var max=900,s=Math.min(1,max/Math.max(im.width,im.height));
+   var cv=document.createElement("canvas");
+   cv.width=Math.round(im.width*s);cv.height=Math.round(im.height*s);
+   cv.getContext("2d").drawImage(im,0,0,cv.width,cv.height);
+   var data=cv.toDataURL("image/jpeg",0.6);
+   if(!photos[picked]) photos[picked]=[];
+   photos[picked].push({d:iso(new Date()),img:data});
+   if(!savePhotos()) photos[picked].pop();
+   renderPhotos();
+  };
+  im.src=ev.target.result;
+ };
+ rd.readAsDataURL(f);
+ e.target.value="";
+});
+document.getElementById("exportBtn").addEventListener("click",function(){
+ var blob=new Blob([JSON.stringify(photos)],{type:"application/json"});
+ var a=document.createElement("a");
+ a.href=URL.createObjectURL(blob);
+ a.download="miva-photos-"+iso(new Date())+".json";
+ a.click();
+});
+
+document.getElementById("gaugeSave").addEventListener("click",function(){
+ var v=document.getElementById("gaugeIn").value,k=iso(new Date());
+ if(v==="") delete cfg.rain[k]; else cfg.rain[k]=+v;
+ save();renderToday();
+});
+
+/* ---------- species ---------- */
+function renderSp(){
+ document.getElementById("rainrule").innerHTML="<b>"+t("ruleTitle")+"</b>"+t("ruleBody");
+ document.getElementById("doses").innerHTML=
+  '<tr><td>'+(lang==="fr"?"Cocotiers (jeunes)":"Coconut palms (young)")+'</td><td class="n"><b>45 L</b></td></tr>'
+ +'<tr><td>Mahogany, Cinnamon, Ciderla, Cananga, Moimosps, Quinine, Flamboyant, Thonningii, Prekese, Nutmeg, KV</td><td class="n"><b>40 L</b></td></tr>'
+ +'<tr><td>Mango, Avocado, Orange, Muraya</td><td class="n"><b>30 L</b></td></tr>';
+ document.getElementById("dosenote").textContent=t("doseNote");
+ document.getElementById("spList").innerHTML=SPECIES.map(function(s,i){
+  return '<div class="sp" data-sp="'+i+'"><button><span><span class="spn">'+s[lang]+'</span>'
+   +'<span class="spc">'+(lang==="fr"?s.sci:(s.sciEn||s.sci))+'</span></span><span class="arw">＋</span></button><div class="spbody">'
+   +(s.note?'<div class="flag">'+t("spNote")+'</div>':'')
+   +'<div class="spr"><b>'+t("water")+'</b><p>'+s.w[lang]+'</p></div>'
+   +'<div class="spr"><b>'+t("feed")+'</b><p>'+s.f[lang]+'</p></div>'
+   +'<div class="spr risk"><b>'+t("risk")+'</b><p>'+s.r[lang]+'</p></div>'
+   +'<div class="spr"><b>'+t("prevent")+'</b><p>'+s.p[lang]+'</p></div></div></div>';}).join("");
+ document.querySelectorAll("[data-sp] button").forEach(function(b){
+  b.onclick=function(){
+   var w=b.parentNode,o=w.classList.toggle("open");
+   b.querySelector(".arw").textContent=o?"－":"＋";};});
 }
 
 /* ---------- settings ---------- */
 function renderSet(){
-  document.getElementById("hoses").innerHTML=[1,2,3,4].map(function(n){
-    return '<button data-hose="'+n+'"'+(cfg.hoses===n?' class="on"':'')+'>'+n+'</button>';
-  }).join("");
-  document.querySelectorAll("[data-hose]").forEach(function(b){
-    b.onclick=function(){ cfg.hoses=+b.dataset.hose; save(); renderSet(); renderToday(); };
-  });
-  document.getElementById("hosenote").textContent=t("hoseNote");
-
-  document.getElementById("areaFields").innerHTML=CROPS.map(function(b){
-    var mm=cfg.mm[b.id]!=null?cfg.mm[b.id]:(b.mm||"");
-    return '<div class="set"><label>'+b[lang]
-      +'<span class="hint">mm '+(lang==="fr"?"par tour":"per round")+'</span></label>'
-      +'<input type="number" min="0" placeholder="m²" data-area="'+b.id+'" value="'+(cfg.areas[b.id]||"")+'">'
-      +'<input type="number" min="0" placeholder="mm" data-mm="'+b.id+'" value="'+mm+'"></div>';
-  }).join("");
-  document.getElementById("areanote").textContent=t("areaNote");
-
-  document.getElementById("otherFields").innerHTML=
-    '<div class="set"><label>'+t("tank")+'</label><input type="number" min="0" data-tank value="'+cfg.tank+'"></div>'
-   +'<div class="set"><label>'+t("plantainQ")+'</label><button class="switch'+(cfg.plantainOK?" on":"")+'" data-plant></button></div>';
-
-  document.querySelectorAll("[data-area]").forEach(function(i){
-    i.onchange=function(){ cfg.areas[i.dataset.area]=i.value?+i.value:null; save(); renderToday(); renderCal(); };
-  });
-  document.querySelectorAll("[data-mm]").forEach(function(i){
-    i.onchange=function(){ cfg.mm[i.dataset.mm]=i.value?+i.value:null; save(); renderToday(); renderCal(); };
-  });
-  document.querySelector("[data-tank]").onchange=function(e){ cfg.tank=+e.target.value||2500; save(); renderCal(); };
-  document.querySelector("[data-plant]").onclick=function(e){
-    cfg.plantainOK=!cfg.plantainOK; save(); renderSet(); renderToday();
-  };
+ document.getElementById("hoses").innerHTML=[1,2,3,4].map(function(n){
+  return '<button data-hose="'+n+'"'+(cfg.hoses===n?' class="on"':'')+'>'+n+'</button>';}).join("");
+ document.querySelectorAll("[data-hose]").forEach(function(b){
+  b.onclick=function(){cfg.hoses=+b.dataset.hose;save();renderSet();renderToday();};});
+ document.getElementById("hosenote").textContent=t("hoseNote");
+ document.getElementById("areaFields").innerHTML=CROPS.map(function(b){
+  var mm=cfg.mm[b.id]!==undefined?cfg.mm[b.id]:b.mm;
+  return '<div class="set"><label>'+b[lang]+'<span class="hint">mm '+(lang==="fr"?"par tour":"per round")+'</span></label>'
+  +'<input type="number" min="0" placeholder="m²" data-area="'+b.id+'" value="'+(cfg.areas[b.id]||"")+'">'
+  +'<input type="number" min="0" placeholder="mm" data-mm="'+b.id+'" value="'+(mm==null?"":mm)+'"></div>';}).join("");
+ document.getElementById("areanote").textContent=t("areaNote");
+ document.getElementById("otherFields").innerHTML=
+  '<div class="set"><label>'+t("tank")+'</label><input type="number" min="0" data-tank value="'+cfg.tank+'"></div>'
+ +'<div class="set"><label>'+t("plantainQ")+'</label><button class="switch'+(cfg.plantainOK?" on":"")+'" data-plant></button></div>';
+ document.querySelectorAll("[data-area]").forEach(function(i){
+  i.onchange=function(){cfg.areas[i.dataset.area]=i.value===""?null:+i.value;save();renderToday();renderCal();};});
+ document.querySelectorAll("[data-mm]").forEach(function(i){
+  i.onchange=function(){cfg.mm[i.dataset.mm]=i.value===""?null:+i.value;save();renderToday();renderCal();};});
+ document.querySelector("[data-tank]").onchange=function(e){cfg.tank=+e.target.value||2500;save();renderCal();};
+ document.querySelector("[data-plant]").onclick=function(){cfg.plantainOK=!cfg.plantainOK;save();renderSet();renderToday();};
 }
 
 /* ---------- chrome ---------- */
 function applyLang(){
-  document.documentElement.lang=lang;
-  document.getElementById("hello").textContent=lang==="fr"?"Bonjour, Alicia":"Good morning, Alicia";
-  var now=new Date();
-  document.getElementById("topdate").textContent="MIVA · Pokrom — "+t("dows")[dow(now)]+". "
-    +now.getDate()+" "+t("months")[now.getMonth()]+" "+now.getFullYear();
-  [["lblWeather","weather"],["lblBlocks","blocks"],["lblBudget","budget"],["lblDose","dose"],
-   ["lblRhythm","rhythm"],["lblHose","hose"],["lblAreas","areas"],["lblOther","other"],
-   ["navToday","navToday"],["navCal","navCal"],["navGuide","navGuide"],["navSet","navSet"]]
-  .forEach(function(p){ var e=document.getElementById(p[0]); if(e) e.textContent=t(p[1]); });
-  document.getElementById("printbtn").textContent=t("print");
-  renderWeather(); renderToday(); renderCal(); renderGuide(); renderSet();
+ document.documentElement.lang=lang;
+ document.title=lang==="fr"?"MIVA — Pokrom · Arrosage":"MIVA — Pokrom · Watering";
+ document.getElementById("hello").textContent=lang==="fr"?"Bonjour, Alicia":"Good morning, Alicia";
+ var n=new Date();
+ document.getElementById("topdate").textContent="MIVA · Pokrom — "+t("dows")[dow(n)]+". "+n.getDate()+" "+t("months")[n.getMonth()]+" "+n.getFullYear();
+ [["lblWeather","weather"],["lblBlocks","blocks"],["lblBudget","budget"],["lblDose","dose"],
+  ["lblHose","hose"],["lblAreas","areas"],["lblOther","other"],["lblPhoto","photo"],["lblSp","sp"],["lblLoss","loss"],
+  ["navToday","navToday"],["navCal","navCal"],["navTrack","navTrack"],["navSp","navSp"],["navSet","navSet"]]
+ .forEach(function(p){var e=document.getElementById(p[0]);if(e)e.textContent=t(p[1]);});
+ document.getElementById("printbtn").textContent=t("print");
+ renderWeather();renderToday();renderCal();renderLoss();renderPhotos();renderSp();renderSet();
 }
 document.querySelectorAll("[data-lang]").forEach(function(b){
-  b.onclick=function(){
-    document.querySelectorAll("[data-lang]").forEach(function(x){x.classList.remove("on");});
-    b.classList.add("on"); lang=b.dataset.lang; applyLang();
-  };
-});
+ b.onclick=function(){document.querySelectorAll("[data-lang]").forEach(function(x){x.classList.remove("on");});
+  b.classList.add("on");lang=b.dataset.lang;applyLang();};});
 document.querySelectorAll("nav button").forEach(function(b){
-  b.onclick=function(){
-    document.querySelectorAll("nav button").forEach(function(x){ x.classList.toggle("on",x===b); });
-    document.querySelectorAll(".view").forEach(function(v){ v.classList.toggle("on",v.id==="v-"+b.dataset.tab); });
-    window.scrollTo(0,0);
-  };
-});
-document.getElementById("prev").onclick=function(){ view.setMonth(view.getMonth()-1); renderCal(); };
-document.getElementById("next").onclick=function(){ view.setMonth(view.getMonth()+1); renderCal(); };
-document.getElementById("printbtn").onclick=function(){ window.print(); };
-
-applyLang();
-loadWeather();
+ b.onclick=function(){
+  document.querySelectorAll("nav button").forEach(function(x){x.classList.toggle("on",x===b);});
+  document.querySelectorAll(".view").forEach(function(v){v.classList.toggle("on",v.id==="v-"+b.dataset.tab);});
+  window.scrollTo(0,0);};});
+document.getElementById("prev").onclick=function(){view.setMonth(view.getMonth()-1);renderCal();};
+document.getElementById("next").onclick=function(){view.setMonth(view.getMonth()+1);renderCal();};
+document.getElementById("printbtn").onclick=function(){window.print();};
+applyLang();loadWeather();
 </script>
 </body>
 </html>
